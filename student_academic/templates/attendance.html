@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Attendance Records</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Attendance for Student ID: {{ student_id }}</h1>
+
+    <form method="POST">
+      Date: <input name="date" type="date" required><br>
+      Status:
+      <select name="status" required>
+        <option value="Present">Present</option>
+        <option value="Absent">Absent</option>
+      </select><br>
+      <input type="submit" value="Add Record">
+    </form>
+
+    <h2>Existing Records:</h2>
+    <ul>
+      {% for r in records %}
+        <li>{{ r.date }}: {{ r.status }}</li>
+      {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/">Back to Dashboard</a>
+  </body>
+</html>
