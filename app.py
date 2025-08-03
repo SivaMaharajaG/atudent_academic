@@ -14,7 +14,7 @@ def get_db():
             name TEXT NOT NULL,
             roll TEXT NOT NULL,
             course TEXT NOT NULL
-        )
+        );
     """)
     c.execute("""
         CREATE TABLE IF NOT EXISTS marks (
@@ -23,7 +23,7 @@ def get_db():
             subject TEXT NOT NULL,
             marks INTEGER,
             FOREIGN KEY(student_id) REFERENCES students(id)
-        )
+        );
     """)
     c.execute("""
         CREATE TABLE IF NOT EXISTS attendance (
@@ -32,7 +32,7 @@ def get_db():
             date TEXT NOT NULL,
             status TEXT NOT NULL,
             FOREIGN KEY(student_id) REFERENCES students(id)
-        )
+        );
     """)
     conn.commit()
     conn.row_factory = sqlite3.Row
