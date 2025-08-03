@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Add Student</h1>
+    <form method="POST">
+      Name: <input name="name" required><br>
+      Roll No: <input name="roll" required><br>
+      Course: <input name="course" required><br>
+      <input type="submit" value="Save">
+    </form>
+    <br>
+    <a href="/">Back to Dashboard</a>
+  </body>
+</html>
