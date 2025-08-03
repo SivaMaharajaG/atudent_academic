@@ -16,7 +16,7 @@ def home():
         return redirect('/login')
     conn = get_db()
     students = conn.execute('SELECT * FROM students').fetchall()
-    return render_template('index.html', students=students)
+    return render_template('student_list.html', students=students)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
