@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Performance Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Student Performance Report</h1>
+
+    <table border="1" cellpadding="6" cellspacing="0">
+      <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Average Marks</th>
+      </tr>
+      {% for r in reports %}
+      <tr>
+        <td>{{ r.name }}</td>
+        <td>{{ r.roll }}</td>
+        <td>{{ "%.2f"|format(r.avg_marks) }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <br>
+    <a href="/">Back to Dashboard</a>
+  </body>
+</html>
