@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Marks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Marks for {{ student.name }} ({{ student.roll }})</h1>
+    <ul>
+      {% for m in marks %}
+        <li>{{ m.subject }}: {{ m.marks }}</li>
+      {% endfor %}
+    </ul>
+    <br>
+    <a href="/">Back to Dashboard</a>
+  </body>
+</html>
