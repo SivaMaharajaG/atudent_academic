@@ -7,6 +7,34 @@ DATABASE = 'database/student.db'
 
 def get_db():
     conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            roll TEXT NOT NULL,
+            course TEXT NOT NULL
+        )
+    """)
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS marks (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            student_id INTEGER,
+            subject TEXT NOT NULL,
+            marks INTEGER,
+            FOREIGN KEY(student_id) REFERENCES students(id)
+        )
+    """)
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS attendance (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            student_id INTEGER,
+            date TEXT NOT NULL,
+            status TEXT NOT NULL,
+            FOREIGN KEY(student_id) REFERENCES students(id)
+        )
+    """)
+    conn.commit()
     conn.row_factory = sqlite3.Row
     return conn
 
