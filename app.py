@@ -11,12 +11,12 @@ def get_db():
     return conn
 
 @app.route('/')
-def index():
+def home():
     if 'user' not in session:
         return redirect('/login')
     conn = get_db()
     students = conn.execute('SELECT * FROM students').fetchall()
-    return render_template('index.html', students=students)
+    return render_template('student_list.html', students=students)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
