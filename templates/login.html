@@ -7,9 +7,9 @@
   <body>
     <h1>Login</h1>
     <form method="POST">
-      Username: <input name="username"><br>
+      Username: <input name="username" type="text"><br>
       Password: <input name="password" type="password"><br>
-      <input type="submit" value="Login">
+      <button type="submit" value="Login">
     </form>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
