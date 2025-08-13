@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
   </head>
   <body>
-    <h1>Login</h1>
+    <div class="container">
+    <h2>Login</h2>
     <form method="POST">
       Username: <input name="username" type="text"><br>
       Password: <input name="password" type="password"><br>
@@ -20,5 +21,6 @@
         </ul>
       {% endif %}
     {% endwith %}
+    </div>
   </body>
 </html>
